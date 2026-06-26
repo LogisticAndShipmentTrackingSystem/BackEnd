@@ -222,4 +222,7 @@ Shipment ──┬─ 1:N ──> ShipmentTrackingEvent
 Complaint ── 1:N ──> ComplaintAttachment
 ```
 ---
-Sudhanshu S. Dixit
+
+## Author
+**Sudhanshu S Dixit**
+[GitHub Profile](https://github.com/SudhanshuD2)
