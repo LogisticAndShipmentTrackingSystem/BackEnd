@@ -1,12 +1,7 @@
 # BackEnd
 Backend API for a logistics management platform supporting shipment booking, tracking, agent assignment, pricing, payments, complaint resolution, and administrative operations using Spring Boot, JPA, MySQL, and JWT authentication.
 
-# Database Schema
-
-**Legend:**
-- 🟢 `original` — field from your original design
-- 🟡 `requested` — field you asked to restore/add explicitly
-- 🔵 `suggested` — field added on my recommendation, not in your original list
+# Database Schema - MONOLITHIC
 
 ---
 
@@ -57,8 +52,8 @@ Table: `agent_profiles`
 | `employeeCode` | `String` | UNIQUE | 🟡 | internal ops/manifest tracking |
 | `joiningDate` | `LocalDate` | NOT NULL | 🟢 | |
 | `commission` | `BigDecimal(10,2)` | | 🟢 | |
-<!-- | `vehicleNumber` | `String` | | 🟡 | capacity/zone planning | -->
 | `aadhaarNumber` | `String` | NOT NULL, UNIQUE | 🟢 | sensitive PII — encrypt/mask at application layer |
+<!-- | `vehicleNumber` | `String` | | 🟡 | capacity/zone planning | -->
 
 ---
 
@@ -184,7 +179,6 @@ Table: `complaints`
 
 Table: `complaint_attachments`
 
-> 🔵 Entirely new table, not in your original design. Remove this entity if you don't want it yet.
 
 | Field | Type | Constraints | Tag | Notes |
 |---|---|---|---|---|
@@ -225,4 +219,4 @@ Complaint ── 1:N ──> ComplaintAttachment
 
 ## Author
 **Sudhanshu S Dixit**
-[GitHub Profile](https://github.com/SudhanshuD2)
+**[GitHub Profile](https://github.com/SudhanshuD2)**
