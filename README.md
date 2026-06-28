@@ -26,7 +26,10 @@ Backend API for a logistics management platform supporting shipment booking, tra
 | `id` | `Long` | PK, IDENTITY | 🟢 | |
 | `createdAt` | `LocalDateTime` | NOT NULL, not updatable | 🔵 | audit trail |
 | `updatedAt` | `LocalDateTime` | | 🔵 | audit trail |
-| `status` | `Enum (Status)` | NOT NULL | 🟢 | `ACTIVE`, `INACTIVE`, `DELETED` |
+| `isActive` | `Boolean` | NOT NULL, DEFAULT `true` | 🟢 | on soft delete isActive set to `false` |
+
+---
+
 ## User
 
 Table: `users`
@@ -37,6 +40,7 @@ Table: `users`
 | `email` | `String` | NOT NULL, UNIQUE | 🟢 | |
 | `password` | `String` | NOT NULL | 🟢 | store as hash, never plaintext |
 | `phoneNumber` | `String` | NOT NULL | 🟢 | |
+| `address` | `Address` (@OneToOne) | FK -> `addresses.id` | 🟢 | shared-PK relationship |
 | `role` | `Enum (Role)` | NOT NULL | 🟢 | `ROLE_CUSTOMER`, `ROLE_AGENT`, `ROLE_ADMIN`, `ROLE_SUPER_ADMIN` |
 <!-- | `deleted` | `boolean` | NOT NULL, default `false` | 🔵 | soft-delete flag | -->
 
@@ -87,6 +91,7 @@ Table: `cities`
 | `pincode` | `String` | NOT NULL | 🟢 | |
 | `latitude` | `Double` | NOT NULL | 🟡 | for distance calc; will be replaced/supplemented by Maps API later |
 | `longitude` | `Double` | NOT NULL | 🟡 | for distance calc; will be replaced/supplemented by Maps API later |
+| `zone` | `Enum (Zone)` | NOT NULL | 🟢 | `NORTH`, `EAST`, `WEST`, `SOUTH` |
 
 ---
 
